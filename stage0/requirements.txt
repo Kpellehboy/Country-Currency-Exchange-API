@@ -1,4 +1,4 @@
 flask
-python-dotenv
 requests
-# gunicorn
+python-dotenv
+gunicorn  # if using Gunicorn
