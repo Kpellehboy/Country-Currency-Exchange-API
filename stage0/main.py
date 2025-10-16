@@ -31,6 +31,6 @@ def get_profile(): # Fetch user details from environment variables
         json_output,
         mimetype='application/json'
     )
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
