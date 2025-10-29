@@ -3,13 +3,11 @@ from db import get_db_connection
 from models import create_table
 from utils import fetch_countries, fetch_exchange_rates, compute_estimated_gdp, generate_summary_image
 import datetime
-import os
 
 app = Flask(__name__)
 
 create_table()
 
-# countries router
 @app.route("/countries/refresh", methods=["POST"])
 def refresh_countries():
     try:
@@ -156,16 +154,13 @@ def get_status():
         "total_countries": count,
         "last_refreshed_at": last_refreshed.strftime("%Y-%m-%d %H:%M:%S") if last_refreshed else None
     })
-#
+
 # GET /countries/image
 @app.route("/countries/image", methods=["GET"])
 def get_image():
     try:
-        if os.path.exists("cache_summary.png"):
-            return send_file("cache_summary.png", mimetype="image/png")
-        else:
-            return jsonify({"error": "Summary image not found"}), 404
-    except Exception as e:
+        return send_file("cache_summary.png", mimetype="image/png")
+    except:
         return jsonify({"error": "Summary image not found"}), 404
 
 
