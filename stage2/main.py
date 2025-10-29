@@ -9,6 +9,11 @@ app = Flask(__name__)
 
 create_table()
 
+# GET /Test endpoint
+@app.route("/", methods=["GET"])
+def test_endpoint():
+        return jsonify({"message": "Endpoint is working"}), 200
+
 # countries router
 @app.route("/countries/refresh", methods=["POST"])
 def refresh_countries():
