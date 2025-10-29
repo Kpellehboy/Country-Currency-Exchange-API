@@ -193,4 +193,4 @@ The core dependencies for this project are:
 ## 🧪 Testing & Deployment URL
 
 The API was tested using **Postman** to confirm all endpoints, filters, sorting, and error handling meet the requirements.
-Deployed on Railway: backendwizardsstage0-production.up.railway.app
+Deployed on Railway: https://backendwizardsstage0-production.up.railway.app/
